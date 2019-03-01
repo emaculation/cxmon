@@ -5,6 +5,9 @@
 src/cxmon
 src/disass/libdisass.a
 
+# Mac OS X metadata
+*.DS_Store
+
 # Autoconf generated files
 .deps
 Makefile

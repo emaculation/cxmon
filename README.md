@@ -1,10 +1,9 @@
+# cxmon
+A command-line file manipulation tool and disassembler
 
-  cxmon, Version 3.2
-  A command-line file manipulation tool and disassembler
-
-  Copyright (C) 1997-2007 Christian Bauer, Marc Hellwig
-  GNU binutils disassemblers Copyright (C) 1988, 89, 91, 93, 94, 95, 96, 97, 1998
-    Free Software Foundation, Inc.
+Copyright (C) 1997-2007 Christian Bauer, Marc Hellwig
+GNU binutils disassemblers Copyright (C) 1988, 89, 91, 93, 94, 95, 96, 97, 1998
+  Free Software Foundation, Inc.
 
 
 License
@@ -288,7 +287,7 @@ the total number of differences (decimal) are printed.
 
 searches for the given byte string in the buffer starting at "start" up to
 (and including) "end". The addresses and the total number of occurrences are
-displayed. The value of "." is set to the address of the first occurrence. 
+displayed. The value of "." is set to the address of the first occurrence.
 
 
   \ "command"              Execute shell command
@@ -390,7 +389,7 @@ Convert a binary file which contains 16-bit numbers in little-endian format
 to big-endian format (or vice-versa):
 
   [ 0 "file"
-  yh 0 .-1 :>>8|:<<8  
+  yh 0 .-1 :>>8|:<<8
   ] 0 . "file"
 
 Load a BeBox boot ROM image and start disassembling the system reset handler:
