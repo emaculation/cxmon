@@ -1,6 +1,16 @@
 # cxmon
 A command-line file manipulation tool and disassembler
 
+Platform | CI Status|
+---------|:----------------
+AmigaOS  | [Supported �](https://github.com/emaculation/cxmon/issues/3)
+BeOS     | [Supported �](https://github.com/emaculation/cxmon/issues/3)
+FreeBSD  | [Supported �](https://github.com/emaculation/cxmon/issues/3)
+Linux    | [![Linux Build Status](http://badges.herokuapp.com/travis/emaculation/cxmon?env=BADGE=linux&label=build&branch=master)](https://travis-ci.org/emaculation/cxmon)
+OSX      | [![OSX Build Status](http://badges.herokuapp.com/travis/emaculation/cxmon?env=BADGE=osx&label=build&branch=master)](https://travis-ci.org/emaculation/cxmon)
+Windows  | [Supported �](https://github.com/emaculation/cxmon/issues/3)
+
+
 Copyright (C) 1997-2007 Christian Bauer, Marc Hellwig
 GNU binutils disassemblers Copyright (C) 1988, 89, 91, 93, 94, 95, 96, 97, 1998
   Free Software Foundation, Inc.
