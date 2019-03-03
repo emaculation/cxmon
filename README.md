@@ -157,12 +157,12 @@ Command            | Effect
 `yw 0 fff :<<8`    | shifts all words in the address range `0..fff` to the left by 8 bits (you can use this to convert bitmap data from ARGB to RGBA format, for example)
 `y 0 1234 ~:`      | inverts all bytes in the address range `0..1234`
 `yh 2 ff 20000/.`  | creates a table of the fractional parts of the reciprocals of `1..7f`
-<code>[ 0 "file1"<br />[ . "file2"<br />] 0 . "file3"</code> | Join `file1` and `file2` to `file3`
-<code>[ 0 "file"<br />] 18 .-18 "file"</code>| Remove the first 24 bytes (e.g. an unneeded header) of `file`
-<code>[ 0 "cxmon"<br />h 0 . 60,00,00,00</code> | Load the `cxmon` executable and search for PowerPC `nop` commands
-<code>[ 0 "cxmon"<br />set size=.<br />h 0 . "->"<br />: . " $"<br />] 0 size "cxmon1"</code> | Create a modified version of `cxmon` so that the prompt has ` $` instead of `->`
-<code>[ 0 "file"<br />yh 0 .-1 :>>8&#124;:<<8<br />] 0 . "file"</code> | Convert a binary `file` which contains 16-bit numbers in little-endian format to big-endian format (or vice-versa)
-<code>[ 0 "bootnub.image"<br />d 100</code> | Load a BeBox boot ROM image and start disassembling the system reset handler
+`[ 0 "file1"`<br />`[ . "file2"`<br />`] 0 . "file3"` | Join `file1` and `file2` to `file3`
+`[ 0 "file"`<br />`] 18 .-18 "file"`| Remove the first 24 bytes (e.g. an unneeded header) of `file`
+`[ 0 "cxmon"`<br />`h 0 . 60,00,00,00` | Load the `cxmon` executable and search for PowerPC `nop` commands
+`[ 0 "cxmon"`<br />`set size=.`<br />`h 0 . "->"`<br />`: . " $"`<br />`] 0 size "cxmon1"` | Create a modified version of `cxmon` so that the prompt has ` $` instead of `->`
+`[ 0 "file"`<br /><code>yh 0 .-1 :>>8&#124;:<<8</code><br />`] 0 . "file"` | Convert a binary `file` which contains 16-bit numbers in little-endian format to big-endian format (or vice-versa)
+`[ 0 "bootnub.image"`<br />`d 100` | Load a BeBox boot ROM image and start disassembling the system reset handler
 
 
 ## Using cxmon in your own programs
