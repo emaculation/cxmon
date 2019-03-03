@@ -11,12 +11,12 @@ suspend.bin is a MacBinary file which should be unpacked and run in 680x0 Macint
 
 # Break point commands
 
-```
-ba [address]             Add a break point
-br [breakpoints#]        Remove a break point. If # is 0, remove all break points.
-bd [breakpoints#]        Disable a break point. If # is 0, disable all break points.
-be [breakpoints#]        Enable a break point. If # is 0, enable all break points.
-bi                       List all break points
-bs "file"                Save all break points to a file
-bl "file"                Load break points from a file
-```
+Command | Effect
+:-------|:------
+`ba [address]`      | Add a break point
+`br [breakpoints#]` | Remove a break point. If # is 0, remove all break points.
+`bd [breakpoints#]` | Disable a break point. If # is 0, disable all break points.
+`be [breakpoints#]` | Enable a break point. If # is 0, enable all break points.
+`bi`                | List all break points
+`bs "file"`         | Save all break points to a file
+`bl "file"`         | Load break points from a file
