@@ -74,7 +74,7 @@ Operator| Meaning
 `>>`    | shift right
 `&`     | bitwise AND
 `^`     | bitwise exclusive OR
-`|`     | bitwise inclusive OR
+<code>&#124;</code>     | bitwise inclusive OR
 
 
 Parentheses may be used to change the evaluation order of sub-expressions.
