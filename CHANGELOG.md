@@ -93,3 +93,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/) and this 
 ## [v1.0.0] (V1.0) - (date unknown)
 ### Added
 - initial release
+
+[Unreleased]: https://github.com/emaculation/cxmon/compare/v3.2.0...HEAD
+[v3.2.0]: https://github.com/emaculation/cxmon/compare/v1.0.0...v3.2.0
