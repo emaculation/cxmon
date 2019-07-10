@@ -1,0 +1,51 @@
+---
+install:
+  - set PATH=C:\cygwin\bin;C:\cygwin64\bin;%PATH%
+  - '%CYG_ROOT%\setup-%CYG_ARCH%.exe -qnNdO -R %CYG_ROOT%
+    -l %CYG_ROOT%/var/cache/setup
+    -P autoconf
+    -P automake
+    -P bison
+    -P curl
+    -P gcc-core
+    -P gcc-g++
+    -P gettext
+    -P gettext-devel
+    -P git
+    -P intltool
+    -P libgmp-devel
+    -P libiconv
+    -P libncurses-devel
+    -P libreadline-devel
+    -P libtool
+    -P make
+    -P mingw-binutils
+    -P mingw-gcc-core
+    -P mingw-gcc-g++
+    -P mingw-pthreads
+    -P mingw-runtime
+    -P mingw-w32api
+    -P pkg-config
+    -P wget'
+
+environment:
+  matrix:
+    - CYG_ARCH: x86_64
+      CYG_ROOT: C:/cygwin64
+
+build: 'off'
+
+before_test:
+  - gcc -v
+  - g++ -v
+
+test_script:
+  # https://help.appveyor.com/discussions/problems/5170-progresspreference-not-works-always-shown-preparing-modules-for-first-use-in-stderr
+  - ps: $ProgressPreference = "SilentlyContinue"
+  - sh -c "
+    aclocal &&
+    autoconf &&
+    ./bootstrap &&
+    ./configure &&
+    make &&
+    make check"
