@@ -4,8 +4,6 @@ environment:
     - CYG_ARCH: x86_64
       CYG_ROOT: C:/cygwin64
 
-build: 'off'
-
 install:
   - set PATH=C:\cygwin64\bin;%PATH%
   - '%CYG_ROOT%\setup-%CYG_ARCH%.exe -qnNdO -R %CYG_ROOT%
@@ -35,11 +33,11 @@ install:
     -P pkg-config
     -P wget'
 
-before_test:
+before_build:
   - gcc -v
   - g++ -v
 
-test_script:
+build_script:
   # https://help.appveyor.com/discussions/problems/5170-progresspreference-not-works-always-shown-preparing-modules-for-first-use-in-stderr
   - ps: $ProgressPreference = "SilentlyContinue"
   - bash -lc "
@@ -48,5 +46,11 @@ test_script:
     echo '==> Running autoconf'    ; autoconf &&
     echo '==> Running ./bootstrap' ; ./bootstrap &&
     echo '==> Running ./configure' ; ./configure &&
-    echo '==> Running make '       ; make &&
-    echo '==> Running make check'  ; make check"
+    echo '==> Running make'        ; make"
+
+test_script:
+  # https://help.appveyor.com/discussions/problems/5170-progresspreference-not-works-always-shown-preparing-modules-for-first-use-in-stderr
+  - ps: $ProgressPreference = "SilentlyContinue"
+  - bash -lc "
+    cd $APPVEYOR_BUILD_FOLDER ;
+    echo '==> Running make check' ; make check"
