@@ -9,7 +9,7 @@ BeOS     | [� unclear �](https://github.com/emaculation/cxmon/issues/3)
 FreeBSD  | [� unclear �](https://github.com/emaculation/cxmon/issues/3)
 Linux    | [![Linux Build Status](http://badges.herokuapp.com/travis/emaculation/cxmon?env=BADGE=linux&label=build&branch=master)](https://travis-ci.org/emaculation/cxmon)
 OSX      | [![OSX Build Status](http://badges.herokuapp.com/travis/emaculation/cxmon?env=BADGE=osx&label=build&branch=master)](https://travis-ci.org/emaculation/cxmon)
-Windows  | [![Windows Build status](https://ci.appveyor.com/api/projects/stqatus/7c7gbxqb07lwwgx1/branch/master?svg=true)](https://ci.appveyor.com/project/ianfixes/cxmon) [Null ⚠️](https://github.com/emaculation/cxmon/issues/6)
+Windows  | [![Windows Build status](https://img.shields.io/appveyor/ci/ianfixes/cxmon.svg)](https://ci.appveyor.com/project/ianfixes/cxmon)
 
 
 Copyright (C) 1997-2007 Christian Bauer, Marc Hellwig
