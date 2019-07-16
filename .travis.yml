@@ -20,4 +20,4 @@ script:
   - cmake ..
   - make
   - ./src/cxmon ver  # print version
-  - test $TRAVIS_OS_NAME = linux && cpack || echo "Not building RPM on $TRAVIS_OS_NAME" # makes RPM
+  - if test $TRAVIS_OS_NAME = linux ; then cpack ; fi # makes RPM
