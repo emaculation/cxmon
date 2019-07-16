@@ -1,6 +1,8 @@
 language: cpp
 
-sudo: required
+addons:
+  apt:
+    packages: rpm
 
 matrix:
   include:
@@ -13,9 +15,9 @@ matrix:
       env: BADGE=osx
 
 script:
-  - aclocal
-  - autoconf
-  - ./bootstrap
-  - ./configure
-  - make -j 4
-  - make check
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
+  - ./src/cxmon ver  # print version
+  - test $TRAVIS_OS_NAME = linux && cpack || echo "Not building RPM on $TRAVIS_OS_NAME" # makes RPM

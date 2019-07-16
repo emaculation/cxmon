@@ -1,0 +1,103 @@
+cmake_minimum_required(VERSION 3.0)
+
+project(cxmon)
+
+SET(CPACK_PACKAGE_VERSION_MAJOR "3")
+SET(CPACK_PACKAGE_VERSION_MINOR "2")
+SET(CPACK_PACKAGE_VERSION_PATCH "0")
+
+SET(PACKAGE           "cxmon")
+SET(PACKAGE_NAME      "${PACKAGE}")
+SET(PACKAGE_VERSION   "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}")
+SET(PACKAGE_STRING    "${PACKAGE_NAME} ${PACKAGE_VERSION}")
+SET(PACKAGE_TARNAME   "${PACKAGE_NAME}-${PACKAGE_VERSION}")
+SET(PACKAGE_URL       "https://github.com/emaculation/cxmon")
+SET(PACKAGE_BUGREPORT "https://github.com/emaculation/cxmon/issues")
+
+INCLUDE (CheckIncludeFiles)
+INCLUDE (CheckTypeSize)
+INCLUDE (GNUInstallDirs)
+# The order of these checks follows the config.h.in of the original autotools files
+CHECK_INCLUDE_FILES(history.h HAVE_HISTORY_H)
+CHECK_INCLUDE_FILES(inttypes.h HAVE_INTTYPES_H)
+find_package(Readline)
+SET(HAVE_LIBREADLINE ${READLINE_FOUND} CACHE INTERNAL "libreadline available")
+CHECK_INCLUDE_FILES(memory.h HAVE_MEMORY_H)
+CHECK_INCLUDE_FILES(readline.h HAVE_READLINE_H)
+CHECK_INCLUDE_FILES("readline/history.h" HAVE_READLINE_HISTORY_H)
+CHECK_INCLUDE_FILES("readline/readline.h" HAVE_READLINE_READLINE_H)
+CHECK_INCLUDE_FILES(stdint.h HAVE_STDINT_H)
+CHECK_INCLUDE_FILES(stdlib.h HAVE_STDLIB_H)
+CHECK_INCLUDE_FILES(strings.h HAVE_STRINGS_H)
+CHECK_INCLUDE_FILES(string.h HAVE_STRING_H)
+CHECK_INCLUDE_FILES("sys/stat.h" HAVE_SYS_STAT_H)
+CHECK_INCLUDE_FILES("sys/types.h" HAVE_SYS_TYPES_H)
+CHECK_INCLUDE_FILES(unistd.h HAVE_UNISTD_H)
+
+
+CHECK_TYPE_SIZE(int SIZEOF_INT)
+CHECK_TYPE_SIZE(long SIZEOF_LONG)
+CHECK_TYPE_SIZE("long long" SIZEOF_LONG_LONG)
+CHECK_TYPE_SIZE(short SIZEOF_SHORT)
+CHECK_TYPE_SIZE("void *" SIZEOF_VOID_P)
+
+CHECK_INCLUDE_FILES("stdlib.h;stdarg.h;string.h;float.h" STDC_HEADERS)
+
+CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake.in ${CMAKE_CURRENT_SOURCE_DIR}/config.h)
+ADD_SUBDIRECTORY(src)
+
+install(FILES cxmon.1 DESTINATION "${CMAKE_INSTALL_FULL_MANDIR}/man1")
+#install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} DESTINATION /usr/share/man/man1 FILES_MATCHING PATTERN *.1*)
+
+install(
+    FILES
+        "${CMAKE_CURRENT_SOURCE_DIR}/AUTHORS"
+        "${CMAKE_CURRENT_SOURCE_DIR}/ChangeLog"
+        "${CMAKE_CURRENT_SOURCE_DIR}/README.md"
+        "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE"
+    DESTINATION "${CMAKE_INSTALL_DOCDIR}"
+)
+
+
+#
+# Packaging support
+#
+set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
+set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
+set(CPACK_PACKAGE_VERSION_MAJOR ${PROJECT_VERSION_MAJOR})
+set(CPACK_PACKAGE_VERSION_MINOR ${PROJECT_VERSION_MINOR})
+set(CPACK_PACKAGE_VERSION_PATCH ${PROJECT_VERSION_PATCH})
+
+#
+#  Metadata common to all packaging systems
+#
+set(CPACK_PACKAGE_DESCRIPTION
+    "cxmon is an interactive command-driven file manipulation tool that is
+    inspired by the \"Amiga Monitor\" by Timo Rossi. It has commands and features
+    similar to a machine code monitor/debugger, but it lacks any functions for
+    running/tracing code. There are, however, built-in PowerPC, 680x0, 80x86,
+    x86-64, 6502 and Z80 disassemblers and special support for disassembling
+    MacOS code."
+)
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Command-line file manipulation tool and disassembler")
+
+#
+#  RPM Specific configuration
+#
+set(CPACK_RPM_PACKAGE_LICENSE "GPL")
+set(CPACK_RPM_PACKAGE_URL ${PACKAGE_URL})
+set(CPACK_RPM_PACKAGE_GROUP "Utilities/File")
+set(CPACK_RPM_PACKAGE_DESCRIPTION ${CPACK_PACKAGE_DESCRIPTION})
+set(CPACK_RPM_FILE_NAME RPM-DEFAULT)
+
+
+# For building the RPM
+set(CPACK_PACKAGE_VERSION ${PACKAGE_VERSION})
+set(CPACK_GENERATOR "RPM")
+set(CPACK_PACKAGE_RELEASE 1)
+set(CPACK_PACKAGING_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+set(CPACK_PACKAGE_FILE_NAME "${PACKAGE_TARNAME}-${CPACK_PACKAGE_RELEASE}.${CMAKE_SYSTEM_PROCESSOR}")
+set(CPACK_SOURCE_PACKAGE_FILE_NAME "${PACKAGE_TARNAME}")
+set(CPACK_SOURCE_IGNORE_FILES "/build/;/.git/;~$;${CPACK_SOURCE_IGNORE_FILES}")
+
+include(CPack)

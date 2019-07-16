@@ -11,6 +11,7 @@ install:
     -P autoconf
     -P automake
     -P bison
+    -P cmake
     -P curl
     -P gcc-core
     -P gcc-g++
@@ -42,15 +43,8 @@ build_script:
   - ps: $ProgressPreference = "SilentlyContinue"
   - bash -lc "
     cd $APPVEYOR_BUILD_FOLDER ;
-    echo '==> Running aclocal'     ; aclocal &&
-    echo '==> Running autoconf'    ; autoconf &&
-    echo '==> Running ./bootstrap' ; ./bootstrap &&
-    echo '==> Running ./configure' ; ./configure &&
-    echo '==> Running make'        ; make"
-
-test_script:
-  # https://help.appveyor.com/discussions/problems/5170-progresspreference-not-works-always-shown-preparing-modules-for-first-use-in-stderr
-  - ps: $ProgressPreference = "SilentlyContinue"
-  - bash -lc "
-    cd $APPVEYOR_BUILD_FOLDER ;
-    echo '==> Running make check' ; make check"
+    mkdir build               ;
+    cd build                  ;
+    cmake ..                  ;
+    make                      ;
+    ./src/cxmon ver"

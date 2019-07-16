@@ -25,7 +25,7 @@
 #error "Your compiler is not ANSI. Get a real one."
 #endif
 
-#include "config.h"
+#include "../config.h"
 
 #ifndef STDC_HEADERS
 #error "You don't have ANSI C header files."

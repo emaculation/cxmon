@@ -27,10 +27,6 @@
 #include "mon_cmd.h"
 #include "mon_disass.h"
 
-#ifndef VERSION
-#define VERSION "3"
-#endif
-
 
 /*
  *  range_args = [expression] [[COMMA] expression] END
@@ -129,7 +125,7 @@ static inline uint8 char2print(uint8 c)
 
 void version(void)
 {
-	fprintf(monout, "cxmon V" VERSION "\n");
+	fprintf(monout, "cxmon V" PACKAGE_VERSION "\n");
 }
 
 
