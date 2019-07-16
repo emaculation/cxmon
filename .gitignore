@@ -8,22 +8,18 @@ src/disass/libdisass.a
 # Mac OS X metadata
 *.DS_Store
 
-# Autoconf generated files
-.deps
+# CMake
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
 Makefile
-Makefile.in
-aclocal.m4
-autom4te.cache
-compile
-config.guess
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+# generated files
 config.h
-config.h.in
-config.log
-config.status
-config.sub
-configure
-cxmon.spec
-depcomp
-install-sh
-missing
-stamp-h1

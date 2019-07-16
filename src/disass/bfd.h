@@ -2,7 +2,7 @@
  *  bfd.h - Dummy bfd library header file
  */
 
-#include "sysdeps.h"
+#include "../sysdeps.h"
 #include "ansidecl.h"
 
 enum bfd_flavour {

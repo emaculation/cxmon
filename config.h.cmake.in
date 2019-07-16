@@ -1,0 +1,30 @@
+#cmakedefine PACKAGE           "@PACKAGE@"
+#cmakedefine PACKAGE_BUGREPORT "@PACKAGE_BUGREPORT@"
+#cmakedefine PACKAGE_NAME      "@PACKAGE_NAME@"
+#cmakedefine PACKAGE_STRING    "@PACKAGE_STRING@"
+#cmakedefine PACKAGE_TARNAME   "@PACKAGE_TARNAME@"
+#cmakedefine PACKAGE_URL       "@PACKAGE_URL@"
+#cmakedefine PACKAGE_VERSION   "@PACKAGE_VERSION@"
+
+#cmakedefine HAVE_LIBREADLINE
+
+#cmakedefine STDC_HEADERS
+#cmakedefine HAVE_HISTORY_H
+#cmakedefine HAVE_INTTYPES_H
+#cmakedefine HAVE_MEMORY_H
+#cmakedefine HAVE_READLINE_H
+#cmakedefine HAVE_READLINE_HISTORY_H
+#cmakedefine HAVE_READLINE_READLINE_H
+#cmakedefine HAVE_STDINT_H
+#cmakedefine HAVE_STDLIB_H
+#cmakedefine HAVE_STRINGS_H
+#cmakedefine HAVE_STRING_H
+#cmakedefine HAVE_SYS_STAT_H
+#cmakedefine HAVE_SYS_TYPES_H
+#cmakedefine HAVE_UNISTD_H
+
+#cmakedefine SIZEOF_INT       @SIZEOF_INT@
+#cmakedefine SIZEOF_LONG      @SIZEOF_LONG@
+#cmakedefine SIZEOF_LONG_LONG @SIZEOF_LONG_LONG@
+#cmakedefine SIZEOF_SHORT     @SIZEOF_SHORT@
+#cmakedefine SIZEOF_VOID_P    @SIZEOF_VOID_P@

@@ -52,10 +52,6 @@ extern "C" {
 #include "mon_cmd.h"
 #include "mon_lowmem.h"
 
-#ifndef VERSION
-#define VERSION "3"
-#endif
-
 // Break points
 BREAK_POINT_SET active_break_points;
 BREAK_POINT_SET disabled_break_points;
@@ -1232,7 +1228,7 @@ void mon(int argc, const char **argv)
 
 		// Print banner
 		if (interactive)
-			fprintf(monerr, "\n *** cxmon V" VERSION " by Christian Bauer and Marc Hellwig ***\n"
+			fprintf(monerr, "\n *** cxmon V" PACKAGE_VERSION " by Christian Bauer and Marc Hellwig ***\n"
 							" ***               Press 'h' for help               ***\n\n");
 	}
 
