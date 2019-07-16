@@ -26,7 +26,13 @@ cxmon is an interactive command-driven file manipulation tool that is inspired b
 
 ## Installation
 
-Please consult the file "INSTALL" for installation instructions.
+cxmon uses CMake.
+
+```shell
+$ cmake .
+$ make
+$ make install
+```
 
 ## Usage
 
